@@ -1,0 +1,10 @@
+.car {
+    display-inline: block;
+    margin: 10px;
+    border: 1px solid #e66eeb;
+    box-shadow: 0 2px 2px #e66eeb;
+    padding: 0 20px 10px 20px;
+    width: 275px;
+    height: 280px;
+    background-color: #e66eeb;
+}
