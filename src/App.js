@@ -1,10 +1,9 @@
-import React from 'react';
 import './App.css';
 import Vehicle from './Vehicle/vehicle';
 
 function App() {
-    return ( < div className = "App" >
-
+    return ( <
+        div className = "App" >
         <
         Vehicle vehicleType = "Car"
         name = "Altroz"
@@ -15,7 +14,7 @@ function App() {
         name = "Seltos"
         manufacturer = "Kia"
         fuel = "Diesel" >
-        This is a brand new car by Kia Motors < /Vehicle>    <
+        This is a brand new car by Kia Motors < /Vehicle>     <
         /div>
     );
 }
