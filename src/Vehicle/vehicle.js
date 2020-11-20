@@ -5,7 +5,7 @@ const vehicle = props => (
     <p onClick={props.updateClick}>Name: { props.Name }</p>
     <p>Manufaturer: { props.Manufacturer }</p>
     <p>Fuel Type: { props.FuelType}</p>
-    <input type="text" onChange={props.nameChanged}></input>
+    <input type="text" onChange={props.nameChanged} value={props.Name}></input>
     </div>
 );
 export default vehicle;
