@@ -12,32 +12,35 @@ class App extends React.Component {
                { VehicleType: "Car", Name: "Nexon", Manufacturer: "Tata", FuelType: "Electric" },
                { VehicleType: "Car", Name: "XUV", Manufacturer: "Mahindra", FuelType: "Diesel" },
                { VehicleType: "Car", Name: "Baleno", Manufacturer: "Maruti Suzuki", FuelType: "Petrol" },
-           ]
+           ],
+           Count:4
        };
    }
 
-    updateHandler= () => {
+     render() {
+    const updateHandler= (VehicleType) => {
         this.setState ( {
             vehicles: [
-                { VehicleType: "Car", Name: "Jaguar XF", Manufacturer: "Jaguar", FuelType: "Petrol" },
-                { VehicleType: "Car", Name: "CONTINENTAL GT MULLINER", Manufacturer: "Bentley", FuelType: "Electric" },
-                { VehicleType: "Car", Name: "911 Carrera S", Manufacturer: "Porche", FuelType: "Petrol" },
-                { VehicleType: "Car", Name: "DBS Superleggera", Manufacturer: "Aston Martin", FuelType: "Petrol" },
-            ]
+                { VehicleType: VehicleType, Name: "Jaguar XF", Manufacturer: "Jaguar", FuelType: "Petrol" },
+                { VehicleType: VehicleType, Name: "CONTINENTAL GT MULLINER", Manufacturer: "Bentley", FuelType: "Electric" },
+                { VehicleType: VehicleType, Name: "911 Carrera S", Manufacturer: "Porche", FuelType: "Petrol" },
+                { VehicleType: VehicleType, Name: "DBS Superleggera", Manufacturer: "Aston Martin", FuelType: "Petrol" },
+            ],
+            Count:4
         });
 
     }
 
-   render() {
 
-    return (
+
+   return (
         <div className="App container-fluid">
         <div className="row">
-            <h1>
-                List Of Vehicles 
-            </h1>
-            <div className="buttonDiv">
-            <button className="btn btn-primary btn-lg buttonUpdate" onClick={this.updateHandler}>Update List</button>
+        <div className="col-lg-6 ">
+            <h1>List Of Vehicles | Total Vehicles:{this.state.Count} </h1>
+            </div>  
+            <div className="col-lg-6 buttonDiv">
+            <button className="btn btn-primary btn-lg buttonUpdate" onClick={updateHandler.bind(this,"Sports Car")}>Update List</button>
             </div>
             </div>
             <div className="row"> 
