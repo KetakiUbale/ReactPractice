@@ -31,6 +31,17 @@ class App extends React.Component {
 
     }
 
+const nameChangeHandler=(event)=>{
+    this.setState({
+        vehicles: [
+            { VehicleType: "Car", Name: event.target.value, Manufacturer: "Tata", FuelType: "Petrol" },
+               { VehicleType: "Car", Name: "Nexon", Manufacturer: "Tata", FuelType: "Electric" },
+               { VehicleType: "Car", Name: "XUV", Manufacturer: "Mahindra", FuelType: "Diesel" },
+               { VehicleType: "Car", Name: "Baleno", Manufacturer: "Maruti Suzuki", FuelType: "Petrol" },
+        ],
+
+    });
+}
 
 
    return (
@@ -44,13 +55,36 @@ class App extends React.Component {
             </div>
             </div>
             <div className="row"> 
-           <Vehicle VehicleType={this.state.vehicles[0].VehicleType} Name={this.state.vehicles[0].Name} Manufacturer={this.state.vehicles[0].Manufacturer} FuelType={this.state.vehicles[0].FuelType}></Vehicle>
+           <Vehicle 
+           VehicleType={this.state.vehicles[0].VehicleType} 
+           Name={this.state.vehicles[0].Name} 
+           Manufacturer={this.state.vehicles[0].Manufacturer} 
+           FuelType={this.state.vehicles[0].FuelType} 
+           updateClick={updateHandler.bind(this,"Sports Car")}
+           nameChanged={nameChangeHandler}></Vehicle>
+           
 
-            <Vehicle VehicleType={this.state.vehicles[1].VehicleType} Name={this.state.vehicles[1].Name} Manufacturer={this.state.vehicles[1].Manufacturer} FuelType={this.state.vehicles[1].FuelType}></Vehicle>
+            <Vehicle 
+            VehicleType={this.state.vehicles[1].VehicleType} 
+            Name={this.state.vehicles[1].Name} 
+            Manufacturer={this.state.vehicles[1].Manufacturer} 
+            FuelType={this.state.vehicles[1].FuelType}>
 
-            <Vehicle VehicleType={this.state.vehicles[2].VehicleType} Name={this.state.vehicles[2].Name} Manufacturer={this.state.vehicles[2].Manufacturer} FuelType={this.state.vehicles[2].FuelType}></Vehicle>
+            </Vehicle>
 
-            <Vehicle VehicleType={this.state.vehicles[3].VehicleType} Name={this.state.vehicles[3].Name} Manufacturer={this.state.vehicles[3].Manufacturer} FuelType={this.state.vehicles[3].FuelType}></Vehicle>
+            <Vehicle VehicleType={this.state.vehicles[2].VehicleType}
+            Name={this.state.vehicles[2].Name} 
+            Manufacturer={this.state.vehicles[2].Manufacturer} 
+            FuelType={this.state.vehicles[2].FuelType}>
+
+            </Vehicle>
+
+            <Vehicle VehicleType={this.state.vehicles[3].VehicleType} 
+            Name={this.state.vehicles[3].Name} 
+            Manufacturer={this.state.vehicles[3].Manufacturer} 
+            FuelType={this.state.vehicles[3].FuelType}>
+                
+            </Vehicle>
         </div>
         </div>
  
