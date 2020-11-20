@@ -1,10 +1,10 @@
-.car {
+.vehicle {
     display-inline: block;
     margin: 10px;
-    border: 1px solid #e66eeb;
-    box-shadow: 0 2px 2px #e66eeb;
+    text-align: left;
+    border: 1px solid #6eeb7f;
+    box-shadow: 0 5px 10px rgb(143, 0, 143);
     padding: 0 20px 10px 20px;
-    width: 275px;
-    height: 175px;
-    background-color: #e66eeb;
+    background-color: #ec3673;
+    max-width: 23%;
 }

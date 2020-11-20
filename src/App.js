@@ -19,7 +19,7 @@ class App extends React.Component {
    render() {
 
     return (
-        <div className="App">
+        <div className="App container-fluid">
             <h1>
                 List Of Vehicles
             </h1>
