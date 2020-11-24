@@ -10,8 +10,10 @@ const App = props => {
        { VehicleType: "Car", Name: "Nexon", Manufacturer: "Tata", FuelType: "Electric" },
        { VehicleType: "Car", Name: "XUV", Manufacturer: "Mahindra", FuelType: "Diesel" },
        { VehicleType: "Car", Name: "Baleno", Manufacturer: "Maruti Suzuki", FuelType: "Petrol" },
+       { VehicleType: "Car", Name: "Thar", Manufacturer: "Mahindra", FuelType: "Petrol" },
+       { VehicleType: "Car", Name: "City", Manufacturer: "Honda", FuelType: "Petrol" },
        ],
-        Count :4,
+        Count :6,
         showVehicle: true,
         showVehicleLable:"Show Vehicle"
  });
@@ -30,6 +32,23 @@ const updateHandler= (VehicleType) => {
             showVehicleLable:vehicleState.showVehicleLable
         });
 }
+
+const AddVehicleHandler= (VehicleType) => {
+    
+  const vehicleList=[...vehicleState.vehicles];
+  const newVehicle={VehicleType:"Car",Name:"Nexonnn",Manufacturer:"Tata",FuelType:"Electric"}
+  vehicleList.push(newVehicle);
+
+
+
+    setVehicleState ( {
+        vehicles:vehicleList,
+        Count:vehicleState.Count+1,
+        showVehicles :vehicleState.showVehicles,
+        showVehicleLable:vehicleState.showVehicleLable
+    });
+}
+
 
 const nameChangeHandler=(event)=>{
     setVehicleState({
@@ -66,44 +85,22 @@ const nameChangeHandler=(event)=>{
   }
   let vehicleList=null;
   if(vehicleState.showVehicles){
-    vehicleList=<div className="row"> 
-    <Vehicle 
-    VehicleType={vehicleState.vehicles[0].VehicleType} 
-    Name={vehicleState.vehicles[0].Name} 
-    Manufacturer={vehicleState.vehicles[0].Manufacturer} 
-    FuelType={vehicleState.vehicles[0].FuelType} 
+    vehicleList=(<div className="row"> 
+    {
+    vehicleState.vehicles.map(vehicleItem=> {
+     return <Vehicle 
+    VehicleType={vehicleItem.VehicleType} 
+    Name={vehicleItem.Name} 
+    Manufacturer={vehicleItem.Manufacturer} 
+    FuelType={vehicleItem.FuelType} 
     updateClick={updateHandler}
-    nameChanged={nameChangeHandler}>
-
-    </Vehicle>
-    
-
-     <Vehicle 
-     VehicleType={vehicleState.vehicles[1].VehicleType} 
-     Name={vehicleState.vehicles[1].Name} 
-     Manufacturer={vehicleState.vehicles[1].Manufacturer} 
-     FuelType={vehicleState.vehicles[1].FuelType}>
-
-     </Vehicle>
-
-     <Vehicle VehicleType={vehicleState.vehicles[2].VehicleType}
-     Name={vehicleState.vehicles[2].Name} 
-     Manufacturer={vehicleState.vehicles[2].Manufacturer} 
-     FuelType={vehicleState.vehicles[2].FuelType}>
-
-     </Vehicle>
-
-     <Vehicle VehicleType={vehicleState.vehicles[3].VehicleType} 
-     Name={vehicleState.vehicles[3].Name} 
-     Manufacturer={vehicleState.vehicles[3].Manufacturer} 
-     FuelType={vehicleState.vehicles[3].FuelType}>
-         
-     </Vehicle>
-     </div>
-
-  }
-
-
+    nameChanged={nameChangeHandler}
+ />
+    })
+    }
+    </div>
+    );
+}
    return (
         <div className="App container-fluid">
           <div className="row">
@@ -113,6 +110,7 @@ const nameChangeHandler=(event)=>{
                   <div className="col-lg-6 buttonDiv">
                     <button className="btn btn-primary btn-lg buttonUpdate" onClick={updateHandler}>Update List</button>
                     <button className="btn btn-secondary btn-lg buttonUpdate" onClick={toggleVehicleListHandler}>{vehicleState.showVehicleLable}</button>
+                    <button className="btn btn-secondary btn-lg buttonUpdate" onClick={AddVehicleHandler}>Add Vehicles</button>
                  </div>
               </div>
               {vehicleList}
