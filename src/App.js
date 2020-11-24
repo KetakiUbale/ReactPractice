@@ -49,6 +49,17 @@ const AddVehicleHandler= (VehicleType) => {
     });
 }
 
+const deleteVehicleHandler=(vehicleIndex)=>{
+const vehicleList=[...vehicleState.vehicles];
+vehicleList.splice(vehicleIndex,1);
+setVehicleState({
+    vehicles:vehicleList,
+    Count:vehicleState.Count-1,
+    showVehicles:vehicleState.showVehicles,
+    showVehicleLable:vehicleState.showVehicleLable
+});
+}
+
 
 const nameChangeHandler=(event)=>{
     setVehicleState({
@@ -87,12 +98,13 @@ const nameChangeHandler=(event)=>{
   if(vehicleState.showVehicles){
     vehicleList=(<div className="row"> 
     {
-    vehicleState.vehicles.map(vehicleItem=> {
+    vehicleState.vehicles.map((vehicleItem, index)=> {
      return <Vehicle 
     VehicleType={vehicleItem.VehicleType} 
     Name={vehicleItem.Name} 
     Manufacturer={vehicleItem.Manufacturer} 
     FuelType={vehicleItem.FuelType} 
+    onDelete={deleteVehicleHandler.bind(this, index)}
     updateClick={updateHandler}
     nameChanged={nameChangeHandler}
  />

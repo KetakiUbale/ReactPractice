@@ -6,6 +6,7 @@ const vehicle = props => (
     <p>Manufaturer: { props.Manufacturer }</p>
     <p>Fuel Type: { props.FuelType}</p>
     <input type="text" onChange={props.nameChanged} value={props.Name}></input>
+    <button className="btn btn-sm btn-danger"onClick={props.onDelete} >Delete</button>
     </div>
 );
 export default vehicle;
