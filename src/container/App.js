@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './App.css';
-import Vehicle from './Vehicle/vehicle';
+import Vehicles from '../component/Vehicles/Vehicles';
 
 const App = props => {
   const [vehicleState,setVehicleState] = useState(
@@ -94,22 +94,18 @@ const nameChangeHandler=(event)=>{
      showVehicleLable: label
     });
   }
+
+
   let vehicleList=null;
   if(vehicleState.showVehicles){
     vehicleList=(<div className="row"> 
-    {
-    vehicleState.vehicles.map((vehicleItem, index)=> {
-     return <Vehicle 
-    VehicleType={vehicleItem.VehicleType} 
-    Name={vehicleItem.Name} 
-    Manufacturer={vehicleItem.Manufacturer} 
-    FuelType={vehicleItem.FuelType} 
-    onDelete={deleteVehicleHandler.bind(this, index)}
-    updateClick={updateHandler}
-    nameChanged={nameChangeHandler}
- />
-    })
-    }
+ {
+      <Vehicles
+      vehicles={vehicleState.vehicles}
+      onDelete={deleteVehicleHandler}
+      />
+ })
+    
     </div>
     );
 }
